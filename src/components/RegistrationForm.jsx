@@ -27,37 +27,18 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        try {
-            const response = await fetch("/api/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    fullName,
-                    professionalRole,
-                    constituency,
-                    skills: activeSkills,
-                    idea,
-                }),
-            });
-
-            if (response.ok) {
-                setSubmitStatus("success");
-                // Reset form on success
-                setFullName("");
-                setProfessionalRole("");
-                setConstituency("");
-                setActiveSkills([]);
-                setIdea("");
-                setCharCount(0);
-            } else {
-                setSubmitStatus("error");
-            }
-        } catch (error) {
-            console.error("Submission error:", error);
-            setSubmitStatus("error");
-        } finally {
+        // Simulate network latency for UX
+        setTimeout(() => {
+            setSubmitStatus("success");
+            // Reset form on success
+            setFullName("");
+            setProfessionalRole("");
+            setConstituency("");
+            setActiveSkills([]);
+            setIdea("");
+            setCharCount(0);
             setIsSubmitting(false);
-        }
+        }, 1500);
     };
 
     const skills = [

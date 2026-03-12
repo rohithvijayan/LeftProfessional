@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-clinical-white text-deep-charcoal font-sans selection:bg-accent-yellow overflow-x-hidden">
       {/* Hero Section */}
-      <header className="relative min-h-[100dvh] flex items-center pt-16 pb-20 px-4 sm:px-6 lg:px-24 soviet-grid hero-custom-bg overflow-hidden">
+      <header className="relative h-[100dvh] flex items-center pt-12 pb-16 px-4 sm:px-6 lg:px-24 soviet-grid hero-custom-bg overflow-hidden">
         {/* Dark Overlay for Legibility */}
         <div className="absolute inset-0 bg-black/80 z-0"></div>
 
@@ -23,24 +23,24 @@ export default function Home() {
         >
           <path d="M50 35c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm0 25c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM92.5 45H85c-1-4.3-2.8-8.3-5.2-11.8l5.3-5.3c.8-.8.8-2 0-2.8l-4.4-4.4c-.8-.8-2-.8-2.8 0l-5.3 5.3C69.1 23.6 65.1 21.8 60.8 20.8V13.3c0-1.1-.9-2-2-2h-6.2c-1.1 0-2 .9-2 2v7.5c-4.3 1-8.3 2.8-11.8 5.2l-5.3-5.3c-.8-.8-2-.8-2.8 0l-4.4 4.4c-.8.8-.8 2 0 2.8l5.3 5.3c-2.4 3.5-4.2 7.5-5.2 11.8H13.3c-1.1 0-2 .9-2 2v6.2c0 1.1.9 2 2 2h7.5c1 4.3 2.8 8.3 5.2 11.8l-5.3 5.3c-.8.8-.8 2 0 2.8l4.4 4.4c.8.8 2 .8 2.8 0l5.3-5.3c3.5 2.4 7.5 4.2 11.8 5.2v7.5c0 1.1.9 2 2 2h6.2c1.1 0 2-.9 2-2v-7.5c4.3-1 8.3-2.8 11.8-5.2l5.3 5.3c.8.8 2 .8 2.8 0l4.4-4.4c.8-.8.8-2 0-2.8l-5.3-5.3c2.4-3.5 4.2-7.5 5.2-11.8h7.5c1.1 0 2-.9 2-2v-6.2c0-1.1-.9-2-2-2z"></path>
         </svg>
-        <div className="z-10 max-w-5xl w-full">
-          <div className="mb-3 sm:mb-4 md:mb-8 flex items-center">
+        <div className="z-10 max-w-5xl w-full flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="mb-3 sm:mb-4 md:mb-8 flex items-center justify-center md:justify-start w-full">
             <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-authoritative-red flex items-center justify-center mr-3 sm:mr-4 shrink-0">
               <span className="text-white font-bold text-lg sm:text-xl md:text-2xl">3.0</span>
             </div>
-            <span className="uppercase tracking-widest font-bold border-b-2 border-white text-white text-xs sm:text-sm md:text-base">
+            <span className="uppercase tracking-widest font-bold border-b-2 border-white text-white text-xs sm:text-sm md:text-base whitespace-nowrap">
               Citizen-Architect
             </span>
           </div>
-          <h1 className="font-industrial text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-white leading-tight mb-3 sm:mb-4 drop-shadow-lg text-balance">
+          <h1 className="font-industrial text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-white leading-tight mb-3 sm:mb-4 drop-shadow-lg text-balance font-black">
             നിങ്ങളുടെ പ്രൊഫഷണൽ മികവ് മാറ്റത്തിനായി ഉപയോഗിക്കൂ.
           </h1>
-          <p className="font-industrial text-lg sm:text-xl md:text-4xl text-white mb-3 sm:mb-4 md:mb-6 drop-shadow-md flex flex-wrap gap-1 sm:gap-2">
+          <p className="font-industrial text-xl sm:text-2xl md:text-4xl text-white mb-4 sm:mb-4 md:mb-6 drop-shadow-md flex flex-wrap justify-center md:justify-start gap-2 sm:gap-2 font-black">
             <span className="text-authoritative-red">CODE.</span>
             <span className="text-white">DESIGN.</span>
             <span className="text-authoritative-red">ORGANIZE.</span>
           </p>
-          <p className="text-sm sm:text-base md:text-xl max-w-2xl mb-5 sm:mb-6 md:mb-8 text-white/90 leading-relaxed font-medium">
+          <p className="hidden sm:block text-sm sm:text-base md:text-xl max-w-2xl mb-5 sm:mb-6 md:mb-8 text-white/90 leading-relaxed font-medium">
             A platform for professionals to work for the 2026
             election campaign. Deploy your skills for the collective progress.
           </p>

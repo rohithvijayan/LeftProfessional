@@ -36,6 +36,8 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* Ensure image fills viewport even if content is small */
+  background-attachment: scroll;
 }
 
 @media (min-width: 640px) {
