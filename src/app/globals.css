@@ -32,10 +32,16 @@ body {
 }
 
 .hero-custom-bg {
-  background-image: url('/leftProfBg.webp');
+  background-image: url('/mobileHeroBG.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@media (min-width: 640px) {
+  .hero-custom-bg {
+    background-image: url('/leftProfBg.webp');
+  }
 }
 
 .gear-watermark {
@@ -91,6 +97,7 @@ textarea:focus {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
