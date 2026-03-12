@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="ml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Citizen-Architect 2.0 | Tech-Focused Political Volunteering</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'clinical-white': '#FAFAFA',
+                        'authoritative-red': '#D01C1C',
+                        'deep-charcoal': '#1C1C1C',
+                        'accent-yellow': '#FFD60A',
+                    },
+                    fontFamily: {
+                        'industrial': ['Archivo Black', 'sans-serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style data-purpose="custom-layouts">
+        .soviet-grid {
+            background-image:
+                linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+                linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .gear-watermark {
+            position: absolute;
+            top: 10%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .skill-tile {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .skill-tile:hover {
+            background-color: #FFD60A;
+            color: #1C1C1C;
+        }
+
+        .skill-tile.active {
+            background-color: #D01C1C;
+            color: #FFFFFF;
+            border-color: #D01C1C;
+        }
+
+        input,
+        select,
+        textarea {
+            border-radius: 0 !important;
+            border: 2px solid #1C1C1C !important;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #D01C1C !important;
+            ring: 0 !important;
+            outline: none !important;
+        }
+
+        .stark-divider {
+            height: 2px;
+            background-color: #D01C1C;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-clinical-white text-deep-charcoal font-sans selection:bg-accent-yellow overflow-x-hidden">
+    <!-- BEGIN: Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-20 px-6 lg:px-24 soviet-grid overflow-hidden"
+        data-purpose="hero-section">
+        <!-- Geometric Gear Watermark -->
+        <svg class="gear-watermark" fill="currentColor" viewbox="0 0 100 100">
+            <path
+                d="M50 35c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm0 25c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM92.5 45H85c-1-4.3-2.8-8.3-5.2-11.8l5.3-5.3c.8-.8.8-2 0-2.8l-4.4-4.4c-.8-.8-2-.8-2.8 0l-5.3 5.3C69.1 23.6 65.1 21.8 60.8 20.8V13.3c0-1.1-.9-2-2-2h-6.2c-1.1 0-2 .9-2 2v7.5c-4.3 1-8.3 2.8-11.8 5.2l-5.3-5.3c-.8-.8-2-.8-2.8 0l-4.4 4.4c-.8.8-.8 2 0 2.8l5.3 5.3c-2.4 3.5-4.2 7.5-5.2 11.8H13.3c-1.1 0-2 .9-2 2v6.2c0 1.1.9 2 2 2h7.5c1 4.3 2.8 8.3 5.2 11.8l-5.3 5.3c-.8.8-.8 2 0 2.8l4.4 4.4c.8.8 2 .8 2.8 0l5.3-5.3c3.5 2.4 7.5 4.2 11.8 5.2v7.5c0 1.1.9 2 2 2h6.2c1.1 0 2-.9 2-2v-7.5c4.3-1 8.3-2.8 11.8-5.2l5.3 5.3c.8.8 2 .8 2.8 0l4.4-4.4c.8-.8.8-2 0-2.8l-5.3-5.3c2.4-3.5 4.2-7.5 5.2-11.8h7.5c1.1 0 2-.9 2-2v-6.2c0-1.1-.9-2-2-2z">
+            </path>
+        </svg>
+        <div class="z-10 max-w-5xl">
+            <div class="mb-8 flex items-center">
+                <div class="w-12 h-12 bg-authoritative-red flex items-center justify-center mr-4">
+                    <span class="text-white font-bold text-2xl">2.0</span>
+                </div>
+                <span
+                    class="uppercase tracking-widest font-bold border-b-2 border-deep-charcoal">Citizen-Architect</span>
+            </div>
+            <h1 class="font-industrial text-5xl md:text-8xl text-authoritative-red leading-tight mb-6">
+                നിങ്ങളുടെ പ്രൊഫഷണൽ മികവ് മാറ്റത്തിനായി ഉപയോഗിക്കൂ.
+            </h1>
+            <p class="font-industrial text-3xl md:text-5xl text-deep-charcoal mb-8">
+                CODE. DESIGN. ORGANIZE.
+            </p>
+            <p class="text-xl md:text-2xl max-w-2xl mb-12 text-deep-charcoal/80 leading-relaxed">
+                A platform for professionals to volunteer remotely for the 2026 election campaign. Deploy your skills
+                for the collective progress.
+            </p>
+            <a class="inline-block bg-authoritative-red text-white font-industrial text-xl px-12 py-6 hover:bg-deep-charcoal transition-colors uppercase tracking-wider"
+                href="#register">
+                [Join the Collective]
+            </a>
+        </div>
+    </header>
+    <!-- END: Hero Section -->
+    <!-- BEGIN: Form Workflow -->
+    <main class="py-24 px-6 lg:px-24 border-t-2 border-deep-charcoal" id="register">
+        <div class="max-w-6xl mx-auto">
+            <!-- Progress Tracker -->
+            <nav class="mb-20 grid grid-cols-2 md:grid-cols-4 gap-4" data-purpose="registration-tracker">
+                <div class="border-l-4 border-authoritative-red pl-4 py-2">
+                    <span class="block text-xs uppercase font-bold text-authoritative-red">Step 01</span>
+                    <span class="text-lg font-bold">Identity</span>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-4 py-2 opacity-50">
+                    <span class="block text-xs uppercase font-bold">Step 02</span>
+                    <span class="text-lg font-bold">Location</span>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-4 py-2 opacity-50">
+                    <span class="block text-xs uppercase font-bold">Step 03</span>
+                    <span class="text-lg font-bold">Expertise</span>
+                </div>
+                <div class="border-l-4 border-gray-300 pl-4 py-2 opacity-50">
+                    <span class="block text-xs uppercase font-bold">Step 04</span>
+                    <span class="text-lg font-bold">The Pitch</span>
+                </div>
+            </nav>
+            <div class="grid lg:grid-cols-2 gap-20">
+                <!-- Input Controls -->
+                <section class="space-y-12">
+                    <!-- Identity & Location -->
+                    <div class="space-y-6" data-purpose="form-step-1-2">
+                        <h3
+                            class="text-3xl font-industrial uppercase border-b-2 border-authoritative-red inline-block mb-4">
+                            Core Data</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block uppercase text-xs font-bold mb-2">Full Name</label>
+                                <input class="w-full p-4 text-lg" placeholder="John Doe" type="text" />
+                            </div>
+                            <div>
+                                <label class="block uppercase text-xs font-bold mb-2">Professional Role</label>
+                                <input class="w-full p-4 text-lg" placeholder="Senior Developer" type="text" />
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block uppercase text-xs font-bold mb-2">Constituency (Kerala)</label>
+                                <select class="w-full p-4 text-lg appearance-none" id="constituency-select">
+                                    <option value="">Select your constituency...</option>
+                                    <option value="dharmadam">Dharmadam</option>
+                                    <option value="thiruvananthapuram">Thiruvananthapuram</option>
+                                    <option value="kochi">Kochi</option>
+                                    <option value="palakkad">Palakkad</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Skill Grid Section -->
+                    <div data-purpose="skill-grid-selection">
+                        <h3
+                            class="text-3xl font-industrial uppercase border-b-2 border-authoritative-red inline-block mb-8">
+                            Professional Stack</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-0 border-t border-l border-deep-charcoal">
+                            <!-- Python/JS Tile -->
+                            <div class="skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center active"
+                                onclick="this.classList.toggle('active')">
+                                <svg class="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                                <span class="font-bold uppercase text-sm tracking-tighter">Python / JS
+                                    Development</span>
+                            </div>
+                            <!-- Data/ML Tile -->
+                            <div class="skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center"
+                                onclick="this.classList.toggle('active')">
+                                <svg class="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                                <span class="font-bold uppercase text-sm tracking-tighter">Data Science / ML</span>
+                            </div>
+                            <!-- Video Tile -->
+                            <div class="skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center"
+                                onclick="this.classList.toggle('active')">
+                                <svg class="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                                <span class="font-bold uppercase text-sm tracking-tighter">Motion Design / Video</span>
+                            </div>
+                            <!-- Cybersecurity Tile -->
+                            <div class="skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center"
+                                onclick="this.classList.toggle('active')">
+                                <svg class="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                                <span class="font-bold uppercase text-sm tracking-tighter">Cybersecurity</span>
+                            </div>
+                            <!-- UX Tile -->
+                            <div class="skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center"
+                                onclick="this.classList.toggle('active')">
+                                <svg class="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                                <span class="font-bold uppercase text-sm tracking-tighter">UX / Product Strategy</span>
+                            </div>
+                            <!-- Copywriting Tile -->
+                            <div class="skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center"
+                                onclick="this.classList.toggle('active')">
+                                <svg class="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                                <span class="font-bold uppercase text-sm tracking-tighter">Tech Communication</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Idea Laboratory -->
+                    <div class="bg-deep-charcoal p-8 space-y-4" data-purpose="idea-laboratory">
+                        <label class="block text-clinical-white uppercase text-xs font-bold tracking-widest">Idea
+                            Laboratory</label>
+                        <h4 class="text-accent-yellow text-xl font-bold uppercase mb-2">Suggest your one idea for the
+                            Election Campaign.</h4>
+                        <textarea
+                            class="w-full h-40 bg-transparent text-white border-2 border-accent-yellow/30 p-4 focus:border-accent-yellow"
+                            maxlength="300"
+                            oninput="document.getElementById('char-count').innerText = this.value.length"
+                            placeholder="e.g., Developing an automated fact-checking bot for WhatsApp groups to counter misinformation in real-time..."></textarea>
+                        <div class="flex justify-between items-center text-accent-yellow/60 text-xs">
+                            <span class="uppercase">Focus on scalable technical impact</span>
+                            <span><span id="char-count">0</span> / 300</span>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full bg-deep-charcoal text-white font-industrial py-8 text-2xl hover:bg-authoritative-red transition-all group">
+                        SUBMIT CREDENTIALS <span
+                            class="ml-4 group-hover:translate-x-2 inline-block transition-transform">→</span>
+                    </button>
+                </section>
+                <!-- Visual Column -->
+                <section class="hidden lg:block sticky top-12 h-fit space-y-12">
+                    <!-- Kerala Map Placeholder -->
+                    <div class="p-8 border-2 border-deep-charcoal relative bg-white/50">
+                        <h4 class="font-industrial uppercase text-sm mb-8 tracking-widest">Active Influence Map</h4>
+                        <div class="w-full flex justify-center">
+                            <!-- Minimalist Kerala SVG -->
+                            <svg class="h-[500px] text-deep-charcoal" viewbox="0 0 150 400">
+                                <path
+                                    d="M60,10 L70,30 L65,60 L75,90 L60,120 L55,160 L65,190 L50,230 L55,270 L40,310 L45,350 L30,380 L15,390 L25,360 L10,320 L20,280 L15,240 L30,190 L25,140 L35,100 L25,60 L40,30 Z"
+                                    fill="none" stroke="currentColor" stroke-width="2"></path>
+                                <!-- Glowing Dots -->
+                                <circle class="animate-pulse" cx="55" cy="160" fill="#D01C1C" r="4"></circle>
+                                <circle cx="65" cy="90" fill="#D01C1C" r="3"></circle>
+                                <circle class="animate-pulse" cx="35" cy="350" fill="#D01C1C" r="5"></circle>
+                            </svg>
+                        </div>
+                        <div class="absolute bottom-8 right-8 text-right">
+                            <span class="text-4xl font-industrial block">140</span>
+                            <span class="text-xs uppercase font-bold text-authoritative-red">Target Sectors</span>
+                        </div>
+                    </div>
+                    <!-- Manifesto Snippet -->
+                    <div class="border-l-8 border-authoritative-red p-8 bg-clinical-white">
+                        <blockquote class="text-2xl font-bold leading-tight italic">
+                            "Building the digital infrastructure for the masses is not just a job—it is a duty of the
+                            professional vanguard."
+                        </blockquote>
+                        <p class="mt-4 uppercase text-xs font-bold">— Section 4: Technological Sovereignty</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <!-- END: Form Workflow -->
+    <!-- BEGIN: Footer -->
+    <footer class="bg-deep-charcoal text-clinical-white py-20 px-6 lg:px-24">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12">
+            <div class="space-y-4">
+                <h2 class="font-industrial text-4xl text-authoritative-red">CITIZEN-ARCHITECT 2.0</h2>
+                <div class="stark-divider w-24"></div>
+                <p class="max-w-sm text-clinical-white/60">
+                    Organized by the CPIM Tech Support Wing. Dedicated to systematic progress through technological
+                    rigor and collective action.
+                </p>
+            </div>
+            <div class="text-right">
+                <p class="font-industrial text-xl mb-4">BUILT FOR THE PEOPLE.</p>
+                <p class="text-xs opacity-40 uppercase tracking-widest">© 2024 Protocol V2.6.01 - Kerala</p>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>

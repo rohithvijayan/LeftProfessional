@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
+@theme {
+  --color-clinical-white: #FAFAFA;
+  --color-authoritative-red: #D01C1C;
+  --color-deep-charcoal: #1C1C1C;
+  --color-accent-yellow: #FFD60A;
+
+  --font-industrial: var(--font-industrial), var(--font-anek), sans-serif;
+  --font-sans: var(--font-sans), var(--font-anek), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FAFAFA;
+  --foreground: #1C1C1C;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
+
+.soviet-grid {
+  background-image:
+    linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.hero-custom-bg {
+  background-image: url('/leftProfBg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gear-watermark {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  opacity: 0.03;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.skill-tile {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.skill-tile:hover {
+  background-color: #FFD60A;
+  color: #1C1C1C;
+}
+
+.skill-tile.active {
+  background-color: #D01C1C;
+  color: #FFFFFF;
+  border-color: #D01C1C;
+}
+
+input,
+select,
+textarea {
+  border-radius: 0 !important;
+  border: 2px solid #1C1C1C !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #D01C1C !important;
+  ring: 0 !important;
+  outline: none !important;
+}
+
+.stark-divider {
+  height: 2px;
+  background-color: #D01C1C;
+  width: 100%;
+}
+
+/* Hide scrollbar for progress tracker on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive gear watermark */
+@media (max-width: 640px) {
+  .gear-watermark {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    right: -15%;
+  }
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  .skill-tile {
+    min-height: 100px;
+  }
 }

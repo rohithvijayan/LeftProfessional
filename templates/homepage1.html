@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LeftProfessionals.com | Citizen-Architect 2.0</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&amp;family=Public+Sans:wght@300;400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d51a1a",
+                        "background-light": "#fafafa",
+                        "background-dark": "#1c1c1c",
+                        "charcoal": "#1c1c1c",
+                        "border-grey": "#e5e5e5",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "headline": ["Sora", "sans-serif"],
+                        "mono": ["IBM Plex Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px",
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #fafafa;
+            color: #1c1c1c;
+        }
+
+        .grid-line {
+            border: 0.5px solid #e5e5e5;
+        }
+
+        .headline-font {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .mono-font {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-slate-100">
+    <div class="relative flex min-h-screen flex-col">
+        <!-- Top Navigation Bar -->
+        <header class="border-b border-charcoal/10 px-6 py-4 md:px-12 lg:px-24">
+            <nav class="flex items-center justify-between max-w-7xl mx-auto">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-xl">architecture</span>
+                    </div>
+                    <h2 class="headline-font text-lg font-extrabold tracking-tighter uppercase">LeftProfessionals.com
+                    </h2>
+                </div>
+                <div class="hidden md:flex items-center gap-10">
+                    <a class="mono-font text-xs font-medium uppercase tracking-widest hover:text-primary transition-colors"
+                        href="#">Campaign</a>
+                    <a class="mono-font text-xs font-medium uppercase tracking-widest hover:text-primary transition-colors"
+                        href="#">Mission</a>
+                    <a class="mono-font text-xs font-medium uppercase tracking-widest hover:text-primary transition-colors"
+                        href="#">Archive</a>
+                    <button
+                        class="bg-primary text-white mono-font text-xs font-bold px-6 py-2 hover:bg-red-700 transition-all uppercase tracking-widest">
+                        Join Us
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main class="flex-grow">
+            <!-- Hero Section -->
+            <section
+                class="max-w-7xl mx-auto px-6 py-16 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-charcoal/10">
+                <div class="lg:col-span-8 flex flex-col justify-center gap-8">
+                    <div class="space-y-4">
+                        <span
+                            class="mono-font text-primary text-sm font-bold tracking-[0.2em] uppercase">Citizen-Architect
+                            3.0</span>
+                        <h1
+                            class="headline-font text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[0.9] text-primary uppercase tracking-tighter">
+                            Collective Expertise.<br />Unified Action.
+                        </h1>
+                    </div>
+                    <div class="max-w-xl">
+                        <p class="text-xl md:text-2xl font-light leading-relaxed border-l-4 border-primary pl-6">
+                            Remote Volunteer Campaign 2026. Join the movement of skilled professionals dedicated to
+                            structural change.
+                        </p>
+                    </div>
+                    <div>
+                        <button
+                            class="bg-primary text-white headline-font text-lg font-bold px-10 py-5 hover:bg-red-700 transition-all uppercase tracking-tighter flex items-center gap-3">
+                            Volunteer Now
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 hidden lg:block">
+                    <div
+                        class="w-full h-full bg-charcoal/5 border border-charcoal/10 p-4 relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 opacity-10 bg-[radial-gradient(#d51a1a_1px,transparent_1px)] [background-size:20px_20px]">
+                        </div>
+                        <img alt="Brutalist architectural structure with sharp geometric lines"
+                            class="w-full h-full object-cover grayscale contrast-125 mix-blend-multiply opacity-80"
+                            data-alt="Brutalist architectural structure with sharp geometric lines"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgPJgaebyn5B0V7A3J_KVEkJBQgfQRwZhVmf1yxI971wwm471BBtOkBBa-aZ8Q-bhvQ5nVltwU8K7GhRQSAcgGmYua-E9L_PeohIkzt7SnMcm2sBDs47Ze68KweU5bLrx8RGFggT86T2rQVcp_aNARNtLwasqR3rN1MG47beqmWP1YoFOy7PnP1crAjcshmwKwRNCBAW8cK5Me3ncJMbDYBXvm-5V0sGHbKmZDknpyMvPxo1aBQaM3koQs7P9HBId7hWJ-q0l7h7Ps" />
+                    </div>
+                </div>
+            </section>
+            <!-- Registration Form Section -->
+            <section class="max-w-7xl mx-auto px-6 py-20 md:px-12 lg:px-24">
+                <div class="mb-16">
+                    <h2 class="headline-font text-3xl font-bold uppercase tracking-tight mb-2">Registration Portal</h2>
+                    <div class="w-24 h-1 bg-primary"></div>
+                </div>
+                <form class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Left Column: Personal -->
+                    <div class="space-y-12">
+                        <div class="space-y-8">
+                            <h3 class="mono-font text-xs font-bold uppercase tracking-[0.3em] text-primary">01. Identity
+                            </h3>
+                            <div class="grid gap-8">
+                                <label class="block">
+                                    <span
+                                        class="mono-font text-[10px] uppercase tracking-widest text-charcoal/60 block mb-2">Full
+                                        Name</span>
+                                    <input
+                                        class="w-full bg-transparent border-0 border-b border-charcoal/20 focus:ring-0 focus:border-primary placeholder:text-charcoal/20 py-4 font-display text-lg uppercase"
+                                        placeholder="SURNAME, GIVEN NAMES" type="text" />
+                                </label>
+                                <label class="block">
+                                    <span
+                                        class="mono-font text-[10px] uppercase tracking-widest text-charcoal/60 block mb-2">Electronic
+                                        Mail</span>
+                                    <input
+                                        class="w-full bg-transparent border-0 border-b border-charcoal/20 focus:ring-0 focus:border-primary placeholder:text-charcoal/20 py-4 font-display text-lg uppercase"
+                                        placeholder="NAME@ORGANIZATION.EXT" type="email" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="space-y-6 pt-4">
+                            <h3 class="mono-font text-xs font-bold uppercase tracking-[0.3em] text-primary">02. Domains
+                                of Expertise</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <button
+                                    class="mono-font text-[11px] border border-charcoal/20 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all uppercase tracking-wider"
+                                    type="button">Software Architecture</button>
+                                <button
+                                    class="mono-font text-[11px] bg-primary text-white border border-primary px-4 py-2 uppercase tracking-wider"
+                                    type="button">Data Analytics</button>
+                                <button
+                                    class="mono-font text-[11px] border border-charcoal/20 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all uppercase tracking-wider"
+                                    type="button">Logistics</button>
+                                <button
+                                    class="mono-font text-[11px] border border-charcoal/20 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all uppercase tracking-wider"
+                                    type="button">Legal Frameworks</button>
+                                <button
+                                    class="mono-font text-[11px] border border-charcoal/20 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all uppercase tracking-wider"
+                                    type="button">Public Relations</button>
+                                <button
+                                    class="mono-font text-[11px] border border-charcoal/20 px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-all uppercase tracking-wider"
+                                    type="button">Urban Planning</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Column: Ideas -->
+                    <div class="space-y-12">
+                        <div class="space-y-8 h-full flex flex-col">
+                            <h3 class="mono-font text-xs font-bold uppercase tracking-[0.3em] text-primary">03. Project
+                                Contribution</h3>
+                            <label class="flex-grow block">
+                                <span
+                                    class="mono-font text-[10px] uppercase tracking-widest text-charcoal/60 block mb-2">Proposal
+                                    / Abstract</span>
+                                <div class="bg-charcoal/[0.03] border border-charcoal/10 p-6 h-full min-h-[300px]">
+                                    <textarea
+                                        class="w-full bg-transparent border-0 focus:ring-0 placeholder:text-charcoal/30 mono-font text-sm leading-relaxed resize-none"
+                                        placeholder="Example: Using Machine Learning for voter outreach optimization..."
+                                        rows="10"></textarea>
+                                </div>
+                            </label>
+                            <button
+                                class="w-full bg-charcoal text-white headline-font text-sm font-bold py-6 hover:bg-primary transition-all uppercase tracking-[0.2em]"
+                                type="submit">
+                                Submit Credentials
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-charcoal text-white px-6 py-12 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <div class="flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 bg-primary"></div>
+                        <span class="headline-font text-sm font-bold uppercase tracking-tighter">Citizen-Architect
+                            2.0</span>
+                    </div>
+                    <p class="mono-font text-[10px] text-white/40 uppercase tracking-widest">© 2026
+                        LeftProfessionals.com / No Rights Reserved.</p>
+                </div>
+                <div class="flex flex-wrap gap-x-12 gap-y-4">
+                    <a class="mono-font text-[10px] uppercase tracking-[0.2em] hover:text-primary transition-colors"
+                        href="#">Manifesto</a>
+                    <a class="mono-font text-[10px] uppercase tracking-[0.2em] hover:text-primary transition-colors"
+                        href="#">Privacy Policy</a>
+                    <a class="mono-font text-[10px] uppercase tracking-[0.2em] hover:text-primary transition-colors"
+                        href="#">Contact</a>
+                    <a class="mono-font text-[10px] uppercase tracking-[0.2em] hover:text-primary transition-colors"
+                        href="#">Github</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span
+                        class="material-symbols-outlined text-white/60 hover:text-primary cursor-pointer transition-colors">hub</span>
+                    <span
+                        class="material-symbols-outlined text-white/60 hover:text-primary cursor-pointer transition-colors">lan</span>
+                    <span
+                        class="material-symbols-outlined text-white/60 hover:text-primary cursor-pointer transition-colors">terminal</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
