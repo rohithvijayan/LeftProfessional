@@ -64,7 +64,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Data Analytics",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -72,7 +72,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Machine Learning",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -80,7 +80,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Deep Learning",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M4 7h16M4 12h16M4 17h16M7 7v10M12 7v10M17 7v10" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -88,7 +88,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Python",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -96,7 +96,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Javascript",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -104,7 +104,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Graphic Design",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -112,7 +112,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Video Production (Reels)",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -120,7 +120,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Script Writing",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -128,7 +128,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Content Writing",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -136,7 +136,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         {
             name: "Management",
             icon: (
-                <svg className="w-10 h-10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
@@ -336,16 +336,16 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                 <h3 className="text-2xl sm:text-3xl font-industrial uppercase border-b-2 border-authoritative-red inline-block mb-6 sm:mb-8">
                     Professional Stack
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-0 border-t border-l border-deep-charcoal">
+                <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-5 gap-0 border-t border-l border-deep-charcoal">
                     {skills.map((skill) => (
                         <div
                             key={skill.name}
-                            className={`skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-4 text-center ${activeSkills.includes(skill.name) ? "active" : ""
+                            className={`skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-2 sm:p-4 text-center ${activeSkills.includes(skill.name) ? "active" : ""
                                 }`}
                             onClick={() => toggleSkill(skill.name)}
                         >
                             {skill.icon}
-                            <span className="font-bold uppercase text-[10px] sm:text-xs md:text-sm tracking-tighter">
+                            <span className="font-bold uppercase text-[8px] sm:text-xs md:text-sm tracking-tighter leading-tight">
                                 {skill.name}
                             </span>
                         </div>
