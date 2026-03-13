@@ -29,11 +29,11 @@ export default function Home() {
               <span className="text-white font-bold text-lg sm:text-xl md:text-2xl">3.0</span>
             </div>
             <span className="uppercase tracking-widest font-bold border-b-2 border-white text-white text-xs sm:text-sm md:text-base whitespace-nowrap">
-              Citizen-Architect
+              Digital Brigade
             </span>
           </div>
           <h1 className="font-industrial text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-white leading-tight mb-3 sm:mb-4 drop-shadow-lg text-balance font-black">
-            നിങ്ങളുടെ പ്രൊഫഷണൽ മികവ് മാറ്റത്തിനായി ഉപയോഗിക്കൂ.
+            ഈ തിരഞ്ഞെടുപ്പ് പ്രചാരണത്തിൽ നിങ്ങൾക്കും വളണ്ടിയറാകാം
           </h1>
           <p className="font-industrial text-xl sm:text-2xl md:text-4xl text-white mb-4 sm:mb-4 md:mb-6 drop-shadow-md flex flex-wrap justify-center md:justify-start gap-2 sm:gap-2 font-black">
             <span className="text-authoritative-red">CODE.</span>
@@ -102,12 +102,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-6 sm:gap-8 md:gap-12">
           <div className="space-y-3 sm:space-y-4">
             <h2 className="font-industrial text-2xl sm:text-3xl md:text-4xl text-authoritative-red">
-              CITIZEN-ARCHITECT 3.0
+              Digital Brigade
             </h2>
             <div className="stark-divider w-16 sm:w-24"></div>
             <p className="max-w-sm text-clinical-white/60 text-sm sm:text-base">
-              Organized by the CPIM Tech Support Wing. Dedicated to systematic
-              progress through technological rigor and collective action.
+              Organized by the DYFI professional Subcommittee
             </p>
           </div>
           <div className="text-left md:text-right">

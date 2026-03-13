@@ -1,13 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const RegistrationForm = ({ activeStep, setActiveStep }) => {
     const [fullName, setFullName] = useState("");
-    const [professionalRole, setProfessionalRole] = useState("");
+    const [email, setEmail] = useState("");
+    const [whatsappNumber, setWhatsappNumber] = useState("");
+    const [dob, setDob] = useState("");
     const [constituency, setConstituency] = useState("");
     const [activeSkills, setActiveSkills] = useState(["Python"]);
     const [idea, setIdea] = useState("");
+
+    const [constituencySearch, setConstituencySearch] = useState("");
+    const [skillSearch, setSkillSearch] = useState("");
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const [charCount, setCharCount] = useState(0);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,15 +49,62 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
             setSubmitStatus("success");
             // Reset form on success
             setFullName("");
-            setProfessionalRole("");
+            setEmail("");
+            setWhatsappNumber("");
+            setDob("");
             setConstituency("");
             setActiveSkills([]);
             setIdea("");
             setCharCount(0);
             setIsSubmitting(false);
+            setConstituencySearch("");
+            setSkillSearch("");
         }, 1500);
     };
 
+    const fuzzyMatch = (text, query) => {
+        if (!query) return true;
+        const term = query.toLowerCase().replace(/\s+/g, "");
+        const string = text.toLowerCase().replace(/\s+/g, "");
+        let i = 0,
+            j = 0;
+        while (i < term.length && j < string.length) {
+            if (term[i] === string[j]) i++;
+            j++;
+        }
+        return i === term.length;
+    };
+
+    const constituencies = [
+        "Manjeshwar", "Kasaragod", "Udma", "Kanhangad", "Trikaripur",
+        "Payyannur", "Kalliasseri", "Taliparamba", "Irikkur", "Azhikode",
+        "Kannur", "Dharmadam", "Thalassery", "Kuthuparamba", "Mattannur",
+        "Peravoor", "Mananthavady", "Sulthanbathery", "Kalpetta", "Vadakara",
+        "Kuttiadi", "Nadapuram", "Quilandy (Koyilandy)", "Perambra", "Balusseri",
+        "Elathur", "Kozhikode North", "Kozhikode South", "Beypore", "Kunnamangalam",
+        "Koduvally", "Thiruvambadi", "Kondotty", "Ernad", "Nilambur", "Wandoor",
+        "Manjeri", "Perinthalmanna", "Mankada", "Malappuram", "Vengara",
+        "Vallikkunnu", "Tirurangadi", "Tanur", "Tirur", "Kottakkal", "Thavanur",
+        "Ponnani", "Thrithala", "Pattambi", "Shoranur", "Ottapalam", "Kongad",
+        "Mannarkkad", "Malampuzha", "Palakkad", "Tarur", "Chittur", "Nenmara",
+        "Alathur", "Chelakkara", "Kunnamkulam", "Guruvayoor", "Manalur",
+        "Wadakkanchery", "Ollur", "Thrissur", "Nattika", "Kaipamangalam",
+        "Irinjalakuda", "Puthukkad", "Chalakudy", "Kodungallur", "Perumbavoor",
+        "Angamaly", "Aluva", "Kalamassery", "Paravur", "Vypeen", "Kochi",
+        "Thrippunithura", "Ernakulam", "Thrikkakara", "Kunnathunad", "Piravom",
+        "Muvattupuzha", "Kothamangalam", "Devikulam", "Udumbanchola", "Thodupuzha",
+        "Idukki", "Peerumade", "Pala", "Kaduthuruthy", "Vaikom", "Ettumanoor",
+        "Kottayam", "Puthuppally", "Changanassery", "Kanjirappally", "Poonjar",
+        "Aroor", "Cherthala", "Alappuzha", "Ambalappuzha", "Kuttanad", "Haripad",
+        "Kayamkulam", "Mavelikara", "Chengannur", "Thiruvalla", "Ranni",
+        "Aranmula", "Konni", "Adoor", "Karunagappally", "Chavara", "Kunnathur",
+        "Kottarakkara", "Pathanapuram", "Punalur", "Chadayamangalam", "Kundara",
+        "Kollam", "Eravipuram", "Chathannoor", "Varkala", "Attingal",
+        "Chirayinkeezhu", "Nedumangad", "Vamanapuram", "Kazhakkoottam",
+        "Vattiyoorkavu", "Thiruvananthapuram", "Nemom", "Aruvikkara", "Parassala",
+        "Kattakada", "Kovalam", "Neyyattinkara"
+    ];
+    
     const skills = [
         {
             name: "Data Analytics",
@@ -124,6 +188,9 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         },
     ];
 
+    const filteredConstituencies = constituencies.filter(c => fuzzyMatch(c, constituencySearch));
+    const filteredSkills = skills.filter(s => fuzzyMatch(s.name, skillSearch));
+
     return (
         <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-10 md:space-y-12">
             {/* Identity & Location */}
@@ -131,7 +198,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                 <h3 className="text-2xl sm:text-3xl font-industrial uppercase border-b-2 border-authoritative-red inline-block mb-3 sm:mb-4">
                     Core Data
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                         <label className="block uppercase text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">Full Name</label>
                         <input
@@ -140,173 +207,118 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                             onChange={(e) => setFullName(e.target.value)}
                             required
                             className="w-full p-3 sm:p-4 text-base sm:text-lg"
-                            placeholder="John Doe"
+                            placeholder="Enter Your Name.."
                             type="text"
                         />
                     </div>
                     <div>
-                        <label className="block uppercase text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">Professional Role</label>
+                        <label className="block uppercase text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">Email Address</label>
                         <input
                             onFocus={() => setActiveStep(1)}
-                            value={professionalRole}
-                            onChange={(e) => setProfessionalRole(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                             className="w-full p-3 sm:p-4 text-base sm:text-lg"
-                            placeholder="Senior Developer"
-                            type="text"
+                            placeholder="Enter Your Email.."
+                            type="email"
                         />
                     </div>
                     <div>
+                        <label className="block uppercase text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">WhatsApp Number</label>
+                        <input
+                            onFocus={() => setActiveStep(1)}
+                            value={whatsappNumber}
+                            onChange={(e) => setWhatsappNumber(e.target.value)}
+                            required
+                            className="w-full p-3 sm:p-4 text-base sm:text-lg"
+                            placeholder="Enter Your WhatsApp Number.."
+                            type="tel"
+                        />
+                    </div>
+                    <div>
+                        <label className="block uppercase text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">Date of Birth</label>
+                        <input
+                            onFocus={() => setActiveStep(1)}
+                            value={dob}
+                            onChange={(e) => setDob(e.target.value)}
+                            required
+                            className="w-full p-3 sm:p-4 text-base sm:text-lg"
+                            type="date"
+                        />
+                    </div>
+                    <div className="col-span-1 md:col-span-2 relative" ref={dropdownRef}>
                         <label className="block uppercase text-[10px] sm:text-xs font-bold mb-1.5 sm:mb-2">Constituency (Kerala)</label>
+                        
+                        {/* Custom Searchable Dropdown */}
+                        <div 
+                            className={`w-full p-3 sm:p-4 text-base sm:text-lg border-2 transition-all cursor-pointer flex justify-between items-center ${isDropdownOpen ? "border-authoritative-red bg-white shadow-lg" : "border-deep-charcoal/10 bg-black/5"}`}
+                            onClick={() => {
+                                setIsDropdownOpen(!isDropdownOpen);
+                                setActiveStep(2);
+                            }}
+                        >
+                            <span className={constituency ? "text-deep-charcoal font-bold" : "text-deep-charcoal/40"}>
+                                {constituency ? constituencies.find(c => c.toLowerCase().replace(/\s+/g, '-') === constituency) || constituency : "Select your constituency..."}
+                            </span>
+                            <svg className={`w-4 h-4 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                            </svg>
+                        </div>
+
+                        {isDropdownOpen && (
+                            <div className="absolute z-50 left-0 right-0 mt-2 bg-white border-2 border-authoritative-red shadow-2xl max-h-[300px] flex flex-col">
+                                <div className="p-2 border-b border-deep-charcoal/10 bg-clinical-white">
+                                    <input
+                                        type="text"
+                                        autoFocus
+                                        value={constituencySearch}
+                                        onChange={(e) => setConstituencySearch(e.target.value)}
+                                        placeholder="Type to filter..."
+                                        className="w-full p-2 text-sm bg-white border border-deep-charcoal/20 focus:border-authoritative-red focus:outline-none font-mono"
+                                        onClick={(e) => e.stopPropagation()}
+                                    />
+                                </div>
+                                <div className="overflow-y-auto scrollbar-custom">
+                                    {filteredConstituencies.length > 0 ? (
+                                        filteredConstituencies.map(name => {
+                                            const val = name.toLowerCase().replace(/\s+/g, '-');
+                                            return (
+                                                <div
+                                                    key={name}
+                                                    className={`p-3 text-sm sm:text-base border-b border-deep-charcoal/5 cursor-pointer hover:bg-authoritative-red hover:text-white transition-colors uppercase font-bold tracking-tight ${constituency === val ? "bg-authoritative-red text-white" : ""}`}
+                                                    onClick={() => {
+                                                        setConstituency(val);
+                                                        setIsDropdownOpen(false);
+                                                        setConstituencySearch("");
+                                                    }}
+                                                >
+                                                    {name}
+                                                </div>
+                                            );
+                                        })
+                                    ) : (
+                                        <div className="p-4 text-center text-xs text-deep-charcoal/40 uppercase font-mono">
+                                            No matches found // Try another term
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* Native Hidden Select for Form Submission/Validation */}
                         <select
-                            onFocus={() => setActiveStep(2)}
                             value={constituency}
                             onChange={(e) => setConstituency(e.target.value)}
                             required
-                            className="w-full p-3 sm:p-4 text-base sm:text-lg appearance-none"
+                            className="hidden"
                             id="constituency-select"
                         >
-                            <option value="">Select your constituency...</option>
-                            <option value="manjeshwar">Manjeshwar</option>
-                            <option value="kasaragod">Kasaragod</option>
-                            <option value="udma">Udma</option>
-                            <option value="kanhangad">Kanhangad</option>
-                            <option value="trikaripur">Trikaripur</option>
-                            <option value="payyannur">Payyannur</option>
-                            <option value="kalliasseri">Kalliasseri</option>
-                            <option value="taliparamba">Taliparamba</option>
-                            <option value="irikkur">Irikkur</option>
-                            <option value="azhikode">Azhikode</option>
-                            <option value="kannur">Kannur</option>
-                            <option value="dharmadam">Dharmadam</option>
-                            <option value="thalassery">Thalassery</option>
-                            <option value="kuthuparamba">Kuthuparamba</option>
-                            <option value="mattannur">Mattannur</option>
-                            <option value="peravoor">Peravoor</option>
-                            <option value="mananthavady">Mananthavady </option>
-                            <option value="sulthanbathery">Sulthanbathery </option>
-                            <option value="kalpetta">Kalpetta</option>
-                            <option value="vadakara">Vadakara</option>
-                            <option value="kuttiadi">Kuttiadi</option>
-                            <option value="nadapuram">Nadapuram</option>
-                            <option value="quilandy">Quilandy (Koyilandy)</option>
-                            <option value="perambra">Perambra</option>
-                            <option value="balusseri">Balusseri </option>
-                            <option value="elathur">Elathur</option>
-                            <option value="kozhikode-north">Kozhikode North</option>
-                            <option value="kozhikode-south">Kozhikode South</option>
-                            <option value="beypore">Beypore</option>
-                            <option value="kunnamangalam">Kunnamangalam</option>
-                            <option value="koduvally">Koduvally</option>
-                            <option value="thiruvambadi">Thiruvambadi</option>
-                            <option value="kondotty">Kondotty</option>
-                            <option value="ernad">Ernad</option>
-                            <option value="nilambur">Nilambur</option>
-                            <option value="wandoor">Wandoor </option>
-                            <option value="manjeri">Manjeri</option>
-                            <option value="perinthalmanna">Perinthalmanna</option>
-                            <option value="mankada">Mankada</option>
-                            <option value="malappuram">Malappuram</option>
-                            <option value="vengara">Vengara</option>
-                            <option value="vallikkunnu">Vallikkunnu</option>
-                            <option value="tirurangadi">Tirurangadi</option>
-                            <option value="tanur">Tanur</option>
-                            <option value="tirur">Tirur</option>
-                            <option value="kottakkal">Kottakkal</option>
-                            <option value="thavanur">Thavanur</option>
-                            <option value="ponnani">Ponnani</option>
-                            <option value="thrithala">Thrithala</option>
-                            <option value="pattambi">Pattambi</option>
-                            <option value="shoranur">Shoranur</option>
-                            <option value="ottapalam">Ottapalam</option>
-                            <option value="kongad">Kongad </option>
-                            <option value="mannarkkad">Mannarkkad</option>
-                            <option value="malampuzha">Malampuzha</option>
-                            <option value="palakkad">Palakkad</option>
-                            <option value="tarur">Tarur </option>
-                            <option value="chittur">Chittur</option>
-                            <option value="nenmara">Nenmara</option>
-                            <option value="alathur">Alathur</option>
-                            <option value="chelakkara">Chelakkara </option>
-                            <option value="kunnamkulam">Kunnamkulam </option>
-                            <option value="guruvayoor">Guruvayoor</option>
-                            <option value="manalur">Manalur</option>
-                            <option value="wadakkanchery">Wadakkanchery</option>
-                            <option value="ollur">Ollur</option>
-                            <option value="thrissur">Thrissur</option>
-                            <option value="nattika">Nattika </option>
-                            <option value="kaipamangalam">Kaipamangalam</option>
-                            <option value="irinjalakuda">Irinjalakuda</option>
-                            <option value="puthukkad">Puthukkad</option>
-                            <option value="chalakudy">Chalakudy</option>
-                            <option value="kodungallur">Kodungallur</option>
-                            <option value="perumbavoor">Perumbavoor</option>
-                            <option value="angamaly">Angamaly</option>
-                            <option value="aluva">Aluva</option>
-                            <option value="kalamassery">Kalamassery</option>
-                            <option value="paravur">Paravur</option>
-                            <option value="vypeen">Vypeen</option>
-                            <option value="kochi">Kochi</option>
-                            <option value="thrippunithura">Thrippunithura</option>
-                            <option value="ernakulam">Ernakulam</option>
-                            <option value="thrikkakara">Thrikkakara</option>
-                            <option value="kunnathunad">Kunnathunad </option>
-                            <option value="piravom">Piravom</option>
-                            <option value="muvattupuzha">Muvattupuzha</option>
-                            <option value="kothamangalam">Kothamangalam</option>
-                            <option value="devikulam">Devikulam </option>
-                            <option value="udumbanchola">Udumbanchola</option>
-                            <option value="thodupuzha">Thodupuzha</option>
-                            <option value="idukki">Idukki</option>
-                            <option value="peerumade">Peerumade</option>
-                            <option value="pala">Pala</option>
-                            <option value="kaduthuruthy">Kaduthuruthy</option>
-                            <option value="vaikom">Vaikom </option>
-                            <option value="ettumanoor">Ettumanoor</option>
-                            <option value="kottayam">Kottayam</option>
-                            <option value="puthuppally">Puthuppally</option>
-                            <option value="changanassery">Changanassery</option>
-                            <option value="kanjirappally">Kanjirappally</option>
-                            <option value="poonjar">Poonjar</option>
-                            <option value="aroor">Aroor</option>
-                            <option value="cherthala">Cherthala</option>
-                            <option value="alappuzha">Alappuzha</option>
-                            <option value="ambalappuzha">Ambalappuzha</option>
-                            <option value="kuttanad">Kuttanad</option>
-                            <option value="haripad">Haripad</option>
-                            <option value="kayamkulam">Kayamkulam</option>
-                            <option value="mavelikara">Mavelikara </option>
-                            <option value="chengannur">Chengannur</option>
-                            <option value="thiruvalla">Thiruvalla</option>
-                            <option value="ranni">Ranni</option>
-                            <option value="aranmula">Aranmula</option>
-                            <option value="konni">Konni</option>
-                            <option value="adoor">Adoor </option>
-                            <option value="karunagappally">Karunagappally</option>
-                            <option value="chavara">Chavara</option>
-                            <option value="kunnathur">Kunnathur </option>
-                            <option value="kottarakkara">Kottarakkara</option>
-                            <option value="pathanapuram">Pathanapuram</option>
-                            <option value="punalur">Punalur</option>
-                            <option value="chadayamangalam">Chadayamangalam</option>
-                            <option value="kundara">Kundara</option>
-                            <option value="kollam">Kollam</option>
-                            <option value="eravipuram">Eravipuram</option>
-                            <option value="chathannoor">Chathannoor</option>
-                            <option value="varkala">Varkala</option>
-                            <option value="attingal">Attingal </option>
-                            <option value="chirayinkeezhu">Chirayinkeezhu </option>
-                            <option value="nedumangad">Nedumangad</option>
-                            <option value="vamanapuram">Vamanapuram</option>
-                            <option value="kazhakkoottam">Kazhakkoottam</option>
-                            <option value="vattiyoorkavu">Vattiyoorkavu</option>
-                            <option value="thiruvananthapuram">Thiruvananthapuram</option>
-                            <option value="nemom">Nemom</option>
-                            <option value="aruvikkara">Aruvikkara</option>
-                            <option value="parassala">Parassala</option>
-                            <option value="kattakada">Kattakada</option>
-                            <option value="kovalam">Kovalam</option>
-                            <option value="neyyattinkara">Neyyattinkara</option>
+                            <option value="">Select...</option>
+                            {constituencies.map(name => (
+                                <option key={name} value={name.toLowerCase().replace(/\s+/g, '-')}>
+                                    {name}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
@@ -314,23 +326,42 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
 
             {/* Skill Grid Section */}
             <div>
-                <h3 className="text-2xl sm:text-3xl font-industrial uppercase border-b-2 border-authoritative-red inline-block mb-6 sm:mb-8">
-                    Professional Stack
-                </h3>
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-4">
+                    <h3 className="text-2xl sm:text-3xl font-industrial uppercase border-b-2 border-authoritative-red inline-block">
+                        Professional Stack
+                    </h3>
+                    <div className="w-full sm:w-64">
+                        <label className="block uppercase text-[10px] font-bold mb-1 opacity-50">Filter Skills</label>
+                        <input
+                            type="text"
+                            onFocus={() => setActiveStep(3)}
+                            value={skillSearch}
+                            onChange={(e) => setSkillSearch(e.target.value)}
+                            placeholder="Search skills..."
+                            className="w-full p-2 text-sm bg-black/5 border border-deep-charcoal/10 focus:border-authoritative-red focus:outline-none transition-colors"
+                        />
+                    </div>
+                </div>
                 <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-5 gap-0 border-t border-l border-deep-charcoal">
-                    {skills.map((skill) => (
-                        <div
-                            key={skill.name}
-                            className={`skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-2 sm:p-4 text-center ${activeSkills.includes(skill.name) ? "active" : ""
-                                }`}
-                            onClick={() => toggleSkill(skill.name)}
-                        >
-                            {skill.icon}
-                            <span className="font-bold uppercase text-[8px] sm:text-xs md:text-sm tracking-tighter leading-tight">
-                                {skill.name}
-                            </span>
+                    {filteredSkills.length > 0 ? (
+                        filteredSkills.map((skill) => (
+                            <div
+                                key={skill.name}
+                                className={`skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-2 sm:p-4 text-center cursor-pointer transition-all hover:bg-black/5 ${activeSkills.includes(skill.name) ? "active" : ""
+                                    }`}
+                                onClick={() => toggleSkill(skill.name)}
+                            >
+                                {skill.icon}
+                                <span className="font-bold uppercase text-[8px] sm:text-xs md:text-sm tracking-tighter leading-tight">
+                                    {skill.name}
+                                </span>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="col-span-full py-12 text-center text-deep-charcoal/40 font-mono uppercase tracking-widest border-r border-b border-deep-charcoal">
+                            No matching skills found // Reset search
                         </div>
-                    ))}
+                    )}
                 </div>
             </div>
 
@@ -355,7 +386,6 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                             setIdea(e.target.value);
                             setCharCount(e.target.value.length);
                         }}
-                        required
                         className={`w-full h-36 sm:h-48 bg-black/20 backdrop-blur-sm border-2 p-4 sm:p-6 text-base sm:text-lg transition-all duration-300 resize-none font-mono ${activeStep === 4
                             ? "border-accent-yellow/50 text-white placeholder-white/20"
                             : "border-deep-charcoal/10 text-deep-charcoal placeholder-deep-charcoal/30"
