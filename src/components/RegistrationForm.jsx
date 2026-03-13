@@ -162,10 +162,10 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
             ),
         },
         {
-            name: "Javascript",
+            name: "UI-UX/Backend Developer",
             icon: (
                 <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                    <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
         },
@@ -206,6 +206,24 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
             icon: (
                 <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                </svg>
+            ),
+        },
+        {
+            name: "AI Video Production",
+            icon: (
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                    <path d="M13 3l1 2M17 5l-1 1M20 9l-2 .5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
+                </svg>
+            ),
+        },
+        {
+            name: "Digital Marketing",
+            icon: (
+                <svg className="w-6 h-6 sm:w-8 md:w-10 mb-2 sm:mb-3 md:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                 </svg>
             ),
         },
@@ -365,7 +383,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                         />
                     </div>
                 </div>
-                <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-5 gap-0 border-t border-l border-deep-charcoal">
+                <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-0 border-t border-l border-deep-charcoal">
                     {filteredSkills.length > 0 ? (
                         filteredSkills.map((skill) => (
                             <div

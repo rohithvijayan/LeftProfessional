@@ -1,8 +1,9 @@
-import { sql } from '@/lib/lib';
+import { getSQL } from '@/lib/lib';
 import { NextResponse } from 'next/server';
 
 export async function POST(request) {
     try {
+        const sql = getSQL();
         const body = await request.json();
         const { fullName, email, whatsappNumber, dob, constituency, skills, idea } = body;
 
