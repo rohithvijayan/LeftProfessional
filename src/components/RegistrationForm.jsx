@@ -44,8 +44,27 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        // Simulate network latency for UX
-        setTimeout(() => {
+        try {
+            const res = await fetch("/api/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    fullName,
+                    email,
+                    whatsappNumber,
+                    dob,
+                    constituency,
+                    skills: activeSkills,
+                    idea,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || "Registration failed");
+            }
+
             setSubmitStatus("success");
             // Reset form on success
             setFullName("");
@@ -56,10 +75,14 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
             setActiveSkills([]);
             setIdea("");
             setCharCount(0);
-            setIsSubmitting(false);
             setConstituencySearch("");
             setSkillSearch("");
-        }, 1500);
+        } catch (err) {
+            console.error("Submit error:", err);
+            setSubmitStatus("error");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const fuzzyMatch = (text, query) => {
