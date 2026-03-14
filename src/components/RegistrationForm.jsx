@@ -29,6 +29,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
     const [charCount, setCharCount] = useState(0);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null); // null | 'success' | 'error'
+    const [errorMessage, setErrorMessage] = useState("");
 
     const toggleSkill = (skill) => {
         setActiveStep(3);
@@ -43,6 +44,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
+        setErrorMessage("");
 
         try {
             const res = await fetch("/api/register", {
@@ -80,6 +82,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
         } catch (err) {
             console.error("Submit error:", err);
             setSubmitStatus("error");
+            setErrorMessage(err.message);
         } finally {
             setIsSubmitting(false);
         }
@@ -465,7 +468,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                 )}
                 {submitStatus === "error" && (
                     <div className="p-6 bg-authoritative-red/10 border-2 border-authoritative-red text-authoritative-red font-bold uppercase text-center">
-                        Registration Failed. Please try again.
+                        {errorMessage || "Registration Failed. Please try again."}
                     </div>
                 )}
 
