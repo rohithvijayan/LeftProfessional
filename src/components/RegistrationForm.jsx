@@ -288,8 +288,9 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                         <input
                             onFocus={() => setActiveStep(1)}
                             value={whatsappNumber}
-                            onChange={(e) => setWhatsappNumber(e.target.value)}
+                            onChange={(e) => setWhatsappNumber(e.target.value.replace(/\D/g, ''))}
                             required
+                            maxLength="14"
                             className="w-full p-3 sm:p-4 text-base sm:text-lg"
                             placeholder="Enter Your WhatsApp Number.."
                             type="tel"
