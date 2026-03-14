@@ -17,9 +17,9 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Citizen-Architect",
+            "name": "Digital Brigade",
             "url": "https://www.digitalbrigade.online",
-            "description": "A platform for professionals to volunteer remotely for the 2026 election campaign.",
+            "description": "A platform for professionals to volunteer remotely for the DYFI 2026 election campaign.",
           })
         }}
       />

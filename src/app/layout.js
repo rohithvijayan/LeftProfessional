@@ -21,19 +21,19 @@ const anekMalayalam = Anek_Malayalam({
 
 export const metadata = {
   metadataBase: new URL("https://www.digitalbrigade.online"),
-  title: "Citizen-Architect | Tech-Focused Political Volunteering",
-  description: "A platform for professionals to volunteer remotely for the 2026 election campaign. Deploy your skills for the collective progress.",
+  title: "Digital Brigade | DYFI Professional Volunteering",
+  description: "A platform for professionals to volunteer remotely for the DYFI 2026 election campaign. Deploy your skills for the collective progress.",
   openGraph: {
-    title: "Citizen-Architect | Tech-Focused Political Volunteering",
-    description: "A platform for professionals to volunteer remotely for the 2026 election campaign. Deploy your skills for the collective progress.",
+    title: "Digital Brigade | DYFI Professional Volunteering",
+    description: "A platform for professionals to volunteer remotely for the DYFI 2026 election campaign. Deploy your skills for the collective progress.",
     url: "/",
-    siteName: "Citizen-Architect",
+    siteName: "Digital Brigade",
     images: [
       {
         url: "/leftProfBg.webp", 
         width: 1200,
         height: 630,
-        alt: "Citizen-Architect Background",
+        alt: "Digital Brigade Background",
       },
     ],
     locale: "en_US",
@@ -41,8 +41,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Citizen-Architect | Tech-Focused Political Volunteering",
-    description: "A platform for professionals to volunteer remotely for the 2026 election campaign.",
+    title: "Digital Brigade | DYFI Professional Volunteering",
+    description: "A platform for professionals to volunteer remotely for the DYFI 2026 election campaign.",
     images: ["/leftProfBg.webp"],
   },
 };
