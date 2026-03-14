@@ -10,6 +10,19 @@ export default function Home() {
 
   return (
     <div className="bg-clinical-white text-deep-charcoal font-sans selection:bg-accent-yellow overflow-x-hidden">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Citizen-Architect",
+            "url": "https://www.digitalbrigade.online",
+            "description": "A platform for professionals to volunteer remotely for the 2026 election campaign.",
+          })
+        }}
+      />
       {/* Hero Section */}
       <header className="relative h-[100dvh] flex items-center pt-12 pb-16 px-4 sm:px-6 lg:px-24 soviet-grid hero-custom-bg overflow-hidden">
         {/* Dark Overlay for Legibility */}
@@ -20,6 +33,7 @@ export default function Home() {
           className="gear-watermark z-0 hidden sm:block"
           fill="currentColor"
           viewBox="0 0 100 100"
+          aria-hidden="true"
         >
           <path d="M50 35c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm0 25c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zM92.5 45H85c-1-4.3-2.8-8.3-5.2-11.8l5.3-5.3c.8-.8.8-2 0-2.8l-4.4-4.4c-.8-.8-2-.8-2.8 0l-5.3 5.3C69.1 23.6 65.1 21.8 60.8 20.8V13.3c0-1.1-.9-2-2-2h-6.2c-1.1 0-2 .9-2 2v7.5c-4.3 1-8.3 2.8-11.8 5.2l-5.3-5.3c-.8-.8-2-.8-2.8 0l-4.4 4.4c-.8.8-.8 2 0 2.8l5.3 5.3c-2.4 3.5-4.2 7.5-5.2 11.8H13.3c-1.1 0-2 .9-2 2v6.2c0 1.1.9 2 2 2h7.5c1 4.3 2.8 8.3 5.2 11.8l-5.3 5.3c-.8.8-.8 2 0 2.8l4.4 4.4c.8.8 2 .8 2.8 0l5.3-5.3c3.5 2.4 7.5 4.2 11.8 5.2v7.5c0 1.1.9 2 2 2h6.2c1.1 0 2-.9 2-2v-7.5c4.3-1 8.3-2.8 11.8-5.2l5.3 5.3c.8.8 2 .8 2.8 0l4.4-4.4c.8-.8.8-2 0-2.8l-5.3-5.3c2.4-3.5 4.2-7.5 5.2-11.8h7.5c1.1 0 2-.9 2-2v-6.2c0-1.1-.9-2-2-2z"></path>
         </svg>
