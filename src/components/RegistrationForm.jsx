@@ -283,6 +283,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                             value={dob}
                             onChange={(e) => setDob(e.target.value)}
                             required
+                            max={new Date().toISOString().split("T")[0]}
                             className="w-full p-3 sm:p-4 text-base sm:text-lg"
                             type="date"
                         />
@@ -459,12 +460,12 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
             <div className="space-y-4">
                 {submitStatus === "success" && (
                     <div className="p-6 bg-green-500/10 border-2 border-green-500 text-green-500 font-bold uppercase text-center animate-pulse">
-                        Credentials Received. Welcome to the Collective.
+                        Welcome To DigitalBrigade
                     </div>
                 )}
                 {submitStatus === "error" && (
                     <div className="p-6 bg-authoritative-red/10 border-2 border-authoritative-red text-authoritative-red font-bold uppercase text-center">
-                        Transmission Failed. Please check your data or connection.
+                        Registration Failed. Please try again.
                     </div>
                 )}
 
