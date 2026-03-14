@@ -42,6 +42,20 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            setSubmitStatus("error");
+            setErrorMessage("Please enter a valid email address with a proper domain.");
+            return;
+        }
+
+        if (!constituency) {
+            setSubmitStatus("error");
+            setErrorMessage("Please select a constituency.");
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitStatus(null);
         setErrorMessage("");
@@ -262,6 +276,8 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
+                            pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+                            title="Please enter a valid email address with a proper domain"
                             className="w-full p-3 sm:p-4 text-base sm:text-lg"
                             placeholder="Enter Your Email.."
                             type="email"
@@ -354,7 +370,6 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                         <select
                             value={constituency}
                             onChange={(e) => setConstituency(e.target.value)}
-                            required
                             className="hidden"
                             id="constituency-select"
                         >
@@ -392,7 +407,7 @@ const RegistrationForm = ({ activeStep, setActiveStep }) => {
                         filteredSkills.map((skill) => (
                             <div
                                 key={skill.name}
-                                className={`skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-2 sm:p-4 text-center cursor-pointer transition-all hover:bg-black/5 ${activeSkills.includes(skill.name) ? "active" : ""
+                                className={`skill-tile aspect-square border-r border-b border-deep-charcoal flex flex-col items-center justify-center p-2 sm:p-4 text-center cursor-pointer transition-all ${activeSkills.includes(skill.name) ? "bg-authoritative-red text-white" : "bg-white hover:bg-black/5"
                                     }`}
                                 onClick={() => toggleSkill(skill.name)}
                             >
